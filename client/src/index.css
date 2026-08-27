@@ -330,6 +330,13 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .price-card-featured .price-eyebrow { color: rgba(16,16,15,.6); }
 .price-card h3 { margin: 14px 0 12px; font-size: 38px; line-height: .9; letter-spacing: -.08em; }
 .price-card > p { max-width: 220px; min-height: 47px; color: rgba(243,240,232,.65); font-size: 13px; line-height: 1.45; }
+.price-ideal { min-height: 69px !important; margin-top: 14px; font-size: 11px !important; line-height: 1.4 !important; }
+.price-ideal strong { display: block; margin-bottom: 5px; color: var(--citrus); font-family: 'IBM Plex Mono', monospace; font-size: 8px; text-transform: uppercase; letter-spacing: .08em; font-weight: 400; }
+.price-card-featured .price-ideal strong { color: #6e832a; }
+.price-timeline { display: flex; justify-content: space-between; gap: 10px; padding: 10px 0; border-top: 1px solid var(--ink-line); border-bottom: 1px solid var(--ink-line); color: rgba(243,240,232,.55); font-family: 'IBM Plex Mono', monospace; font-size: 8px; text-transform: uppercase; letter-spacing: .06em; }
+.price-timeline strong { color: var(--paper); font-weight: 400; }
+.price-card-featured .price-timeline { border-color: rgba(16,16,15,.2); color: rgba(16,16,15,.55); }
+.price-card-featured .price-timeline strong { color: var(--ink); }
 .price-card-featured > p { color: rgba(16,16,15,.67); }
 .price-value { display: block; margin-top: 22px; font-family: 'DM Serif Display', serif; font-size: 28px; font-weight: 400; }
 .price-divider { margin: 21px 0 17px; border-top: 1px solid var(--ink-line); }
@@ -342,6 +349,14 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .price-card-featured .price-link { color: var(--ink); }
 .price-link:hover svg { transform: translate(3px,-3px); }
 .price-link svg { transition: transform 180ms ease-out; }
+.pricing-breakdown { margin: 50px 0 0 31%; }
+.breakdown-heading { display: grid; grid-template-columns: 31% 1fr; gap: 8%; align-items: start; margin-bottom: 20px; }
+.breakdown-heading span { color: var(--citrus); font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: .08em; }
+.breakdown-heading p { max-width: 470px; margin: 0; color: rgba(243,240,232,.58); font-size: 13px; line-height: 1.45; }
+.breakdown-table { border-top: 1px solid var(--ink-line); }
+.breakdown-row { display: grid; grid-template-columns: 1.15fr 1fr 1fr 1fr; gap: 15px; padding: 14px 0; border-bottom: 1px solid var(--ink-line); color: rgba(243,240,232,.65); font-family: 'IBM Plex Mono', monospace; font-size: 9px; line-height: 1.4; }
+.breakdown-row strong { color: var(--paper); font-weight: 400; }
+.breakdown-row-head { color: var(--citrus); font-size: 8px; text-transform: uppercase; letter-spacing: .07em; }
 .pricing-note { display: grid; grid-template-columns: 31% 1fr auto; gap: 8%; align-items: center; margin-top: 45px; padding-top: 18px; border-top: 1px solid var(--ink-line); }
 .pricing-note span { color: var(--citrus); font-size: 9px; }
 .pricing-note p { margin: 0; color: var(--paper); font-family: 'DM Serif Display', serif; font-size: 24px; }
@@ -366,6 +381,9 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .contact-aside > p { max-width: 350px; margin: 0; color: var(--muted-ink); font-size: 15px; line-height: 1.55; }
 .contact-details { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; margin-top: 50px; }
 .contact-details a, .contact-details div { display: inline-flex; align-items: center; gap: 11px; color: var(--ink); font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: .04em; }
+.contact-person { display: flex !important; flex-direction: column; align-items: flex-start !important; gap: 4px !important; margin-bottom: 8px; font-family: 'Space Grotesk', sans-serif !important; text-transform: none !important; letter-spacing: 0 !important; }
+.contact-person strong { font-size: 20px; letter-spacing: -.04em; }
+.contact-person span { color: var(--muted-ink); font-family: 'IBM Plex Mono', monospace; font-size: 8px; text-transform: uppercase; letter-spacing: .08em; }
 .contact-details a:hover { color: #8da632; }
 .contact-details svg { color: #8da632; }
 .contact-form { border-top: 1px solid var(--line); padding-top: 4px; }
@@ -396,6 +414,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .modal-close:hover { background: var(--citrus); }
 .modal-visual { position: relative; height: min(42vh, 360px); overflow: hidden; background: var(--project-accent); color: var(--project-text); }
 .modal-visual .visual-inner { position: absolute; }
+.modal-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 10px 38px 0; background: var(--paper); }
+.modal-gallery img { display: block; width: 100%; aspect-ratio: 1.65 / 1; object-fit: cover; border: 1px solid var(--line); }
 .modal-content { padding: 34px 38px 38px; }
 .modal-content h2 { margin: 8px 0 4px; font-size: clamp(3rem, 6vw, 6rem); line-height: .85; letter-spacing: -.1em; }
 .modal-tagline { margin: 0 0 20px; font-family: 'DM Serif Display', serif; font-size: 22px; }
@@ -510,6 +530,13 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .pricing-section { padding-bottom: 72px; }
   .pricing-grid { grid-template-columns: 1fr; gap: 14px; }
   .price-card, .price-card-featured { min-height: 375px; transform: none; }
+  .pricing-breakdown { margin: 40px 0 0; }
+  .breakdown-heading { display: block; }
+  .breakdown-heading p { margin-top: 12px; }
+  .breakdown-row-head { display: none; }
+  .breakdown-row { grid-template-columns: 1fr 1fr; gap: 10px 14px; padding: 16px 0; font-size: 9px; }
+  .breakdown-row strong { grid-column: span 2; color: var(--citrus); }
+  .breakdown-row span::before { content: attr(data-label); display: block; margin-bottom: 4px; color: rgba(243,240,232,.45); font-size: 7px; text-transform: uppercase; letter-spacing: .07em; }
   .pricing-note { display: block; margin-top: 32px; }
   .pricing-note p { margin: 13px 0 20px; }
   .final-cta { padding: 83px 0 88px; }

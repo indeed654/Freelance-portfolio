@@ -11,6 +11,7 @@ export type Project = {
   accent: string;
   text: string;
   image?: string;
+  gallery?: string[];
   visualClass: string;
   caseStudy: {
     challenge: string;
@@ -21,9 +22,10 @@ export type Project = {
 };
 
 export const contactConfig = {
-  email: "your@email.com",
-  whatsapp: "YOUR_WHATSAPP_NUMBER",
-  whatsappHref: "https://wa.me/YOUR_WHATSAPP_NUMBER",
+  name: "Yash Kumar Sharma",
+  email: "yash1047sharma@gmail.com",
+  whatsapp: "7078479889",
+  whatsappHref: "https://wa.me/917078479889",
   location: "Available remotely · India",
 };
 
@@ -109,7 +111,8 @@ export const projects: Project[] = [
     services: ["Hospitality website", "Visual direction", "Room discovery", "Booking CTA"],
     accent: "#1646a8",
     text: "#f3f0e8",
-    image: "/manus-storage/arvana-preview_b7118456.jpg",
+    image: "/manus-storage/grand-valley-hotel-home_2c0bedd8.jpg",
+    gallery: ["/manus-storage/grand-valley-hotel-home_2c0bedd8.jpg", "/manus-storage/grand-valley-hotel-rooms_ae717579.jpg"],
     visualClass: "arvana-visual",
     caseStudy: {
       challenge: "Give a boutique property a digital presence with enough calm to feel premium and enough clarity to convert a stay.",
@@ -129,6 +132,7 @@ export const projects: Project[] = [
     accent: "#7f1d2d",
     text: "#f3f0e8",
     image: "/manus-storage/aurelia-preview_1ea69d15.jpg",
+    gallery: ["/manus-storage/aurelia-preview_1ea69d15.jpg"],
     visualClass: "aurelia-visual",
     caseStudy: {
       challenge: "Create a jewellery experience that feels elevated without relying on noise, urgency, or empty luxury language.",
@@ -147,6 +151,8 @@ export const projects: Project[] = [
     services: ["Local business website", "Product showcase", "Festival campaign", "WhatsApp CTA"],
     accent: "#f4b41a",
     text: "#3b1812",
+    image: "/manus-storage/shree-mithas-home_f3467fcd.jpg",
+    gallery: ["/manus-storage/shree-mithas-home_f3467fcd.jpg", "/manus-storage/shree-mithas-details_c3a0c98b.jpg"],
     visualClass: "mithas-visual",
     caseStudy: {
       challenge: "Help a beloved local sweets shop feel as memorable online as it does at the counter.",
@@ -165,6 +171,8 @@ export const projects: Project[] = [
     services: ["Restaurant website", "Menu architecture", "Reservation CTA", "Social gallery"],
     accent: "#d8653b",
     text: "#f3f0e8",
+    image: "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1400&q=85",
+    gallery: ["https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1400&q=85", "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=85"],
     visualClass: "ember-visual",
     caseStudy: {
       challenge: "Give a neighbourhood café a stronger online presence without sanding off its warmth or personality.",
@@ -183,6 +191,8 @@ export const projects: Project[] = [
     services: ["Studio website", "Portfolio system", "Before / after", "Consultation CTA"],
     accent: "#8c9c63",
     text: "#10100f",
+    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=85",
+    gallery: ["https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=85", "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85"],
     visualClass: "nova-visual",
     caseStudy: {
       challenge: "Show a design studio’s range while keeping the focus on the quality of its thinking and finished spaces.",
@@ -200,6 +210,8 @@ export const pricing = [
     description: "For small businesses and simple online presence.",
     price: "₹18k+",
     features: ["Focused 1–3 page website", "Responsive design", "Contact CTA setup", "Basic SEO structure"],
+    idealFor: "Small businesses that need a credible online home without unnecessary complexity.",
+    timeline: "1–2 weeks",
   },
   {
     name: "Professional",
@@ -207,6 +219,8 @@ export const pricing = [
     description: "For businesses wanting a modern website with room to grow.",
     price: "₹35k+",
     features: ["Custom multi-page website", "Content hierarchy + UI direction", "Responsive implementation", "Launch polish + handover"],
+    idealFor: "Businesses ready for a stronger brand presence, clearer journeys, and a flexible content system.",
+    timeline: "2–4 weeks",
     featured: true,
   },
   {
@@ -215,7 +229,18 @@ export const pricing = [
     description: "For advanced pages, e-commerce features, and custom UI.",
     price: "Let’s scope it",
     features: ["Premium custom experience", "E-commerce or advanced flows", "Art-directed visual system", "Ongoing refinement options"],
+    idealFor: "Brands that need a more custom experience, commerce, or multiple connected user journeys.",
+    timeline: "4–7 weeks",
   },
+];
+
+export const pricingBreakdown = [
+  { stage: "Discovery & direction", starter: "Brief + page plan", professional: "Brief + content hierarchy", premium: "Strategy workshop + experience map" },
+  { stage: "Visual design", starter: "Focused visual direction", professional: "Custom UI direction + key screens", premium: "Art-directed system + custom components" },
+  { stage: "Build", starter: "1–3 responsive pages", professional: "Multi-page responsive implementation", premium: "Advanced pages, commerce, or custom flows" },
+  { stage: "Content support", starter: "Structure guidance", professional: "Content placement + polish", premium: "Editorial layout support + launch assets" },
+  { stage: "Quality & launch", starter: "Basic QA + handover", professional: "Responsive QA + launch polish", premium: "Cross-device QA + launch support" },
+  { stage: "After launch", starter: "Handover notes", professional: "Short post-launch check-in", premium: "Refinement options scoped separately" },
 ];
 
 export const creativeWork = [
