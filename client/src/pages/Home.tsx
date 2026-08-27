@@ -1,5 +1,5 @@
 // Editorial Signal reminder: let proof lead the story; use asymmetric editorial structure, deliberate contrast, and clear conversion paths instead of generic portfolio sections.
-import { useEffect, useState } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import {
   ArrowDownRight,
   ArrowRight,
@@ -189,6 +189,31 @@ export default function Home() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [submitted, setSubmitted] = useState(false);
 
+  const openWhatsApp = (message = "Hi Yash, I found your portfolio and would like to discuss a website project.") => {
+    const url = `${contactConfig.whatsappHref}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
+  const handleContactSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    const name = String(form.get("name") || "Prospective client");
+    const body = [
+      `Name: ${name}`,
+      `Email: ${String(form.get("email") || "Not provided")}`,
+      `Business / company: ${String(form.get("company") || "Not provided")}`,
+      `Project type: ${String(form.get("projectType") || "Not provided")}`,
+      `Budget range: ${String(form.get("budget") || "Not provided")}`,
+      `Timeline: ${String(form.get("timeline") || "Not provided")}`,
+      "",
+      "Project details:",
+      String(form.get("message") || "Not provided"),
+    ].join("\n");
+    const subject = `New website enquiry from ${name}`;
+    setSubmitted(true);
+    window.location.href = `mailto:${contactConfig.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 28);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -363,11 +388,11 @@ export default function Home() {
         </section>
 
         <section className="final-cta section-citrus">
-          <div className="container final-cta-layout"><div><div className="section-index"><span className="section-route-mark"><img src="/manus-storage/yashu-mark_00a7aaff.png" alt="" /></span>08 <span>/</span> NEXT PROJECT</div><h2>Your business deserves a <em>better website.</em></h2></div><div className="final-cta-copy"><p>Whether you&apos;re starting from scratch or your current website needs a complete refresh, let&apos;s create something your customers will remember.</p><div className="final-cta-actions"><button className="button button-ink" onClick={() => goTo("contact")}>Start a project <ArrowUpRight size={17} /></button><a className="button button-outline-ink" href={contactConfig.whatsappHref} target="_blank" rel="noreferrer">WhatsApp me <MessageCircle size={17} /></a><button className="text-action" onClick={() => goTo("work")}>View my work <ArrowUpRight size={16} /></button></div></div></div>
+          <div className="container final-cta-layout"><div><div className="section-index"><span className="section-route-mark"><img src="/manus-storage/yashu-mark_00a7aaff.png" alt="" /></span>08 <span>/</span> NEXT PROJECT</div><h2>Your business deserves a <em>better website.</em></h2></div><div className="final-cta-copy"><p>Whether you&apos;re starting from scratch or your current website needs a complete refresh, let&apos;s create something your customers will remember.</p><div className="final-cta-actions"><button className="button button-ink" onClick={() => goTo("contact")}>Start a project <ArrowUpRight size={17} /></button><button className="button button-outline-ink" type="button" onClick={() => openWhatsApp()}>WhatsApp me <MessageCircle size={17} /></button><button className="text-action" onClick={() => goTo("work")}>View my work <ArrowUpRight size={16} /></button></div></div></div>
         </section>
 
         <section id="contact" className="contact-section section-paper">
-          <div className="container contact-layout"><div className="contact-aside"><div className="section-index"><span className="section-route-mark"><img src="/manus-storage/yashu-mark_00a7aaff.png" alt="" /></span>09 <span>/</span> CONTACT</div><h2>Let&apos;s build something <em>great.</em></h2><p>Tell me what you&apos;re working on, what is not working yet, or what you want people to feel when they find you online.</p><div className="contact-details"><div className="contact-person"><strong>{contactConfig.name}</strong><span>Freelance web developer &amp; web designer</span></div><a href={`mailto:${contactConfig.email}`}><Mail size={17} /><span>{contactConfig.email}</span></a><a href={contactConfig.whatsappHref} target="_blank" rel="noreferrer"><MessageCircle size={17} /><span>{contactConfig.whatsapp}</span></a><div><MapPin size={17} /><span>{contactConfig.location}</span></div></div></div><form className="contact-form" onSubmit={(event) => { event.preventDefault(); setSubmitted(true); }}><div className="form-row"><label><span>Your name</span><input required name="name" placeholder="Name" /></label><label><span>Email</span><input required type="email" name="email" placeholder="you@company.com" /></label></div><div className="form-row"><label><span>Business / company</span><input name="company" placeholder="Company name" /></label><label><span>Project type</span><select name="projectType" defaultValue=""><option value="" disabled>Select one</option><option>New business website</option><option>Website redesign</option><option>E-commerce website</option><option>Landing page</option><option>Something else</option></select></label></div><div className="form-row"><label><span>Budget range</span><select name="budget" defaultValue=""><option value="" disabled>Select one</option><option>₹18k – ₹35k</option><option>₹35k – ₹70k</option><option>₹70k+</option><option>Let&apos;s discuss</option></select></label><label><span>Timeline</span><input name="timeline" placeholder="When would you like to start?" /></label></div><label><span>Tell me a little about the project</span><textarea required name="message" placeholder="What are you building, refreshing, or trying to make clearer?" rows={5} /></label><button className="button button-ink form-submit" type="submit">{submitted ? "Message noted — thank you" : "Let’s build something great"}<ArrowUpRight size={17} /></button>{submitted ? <p className="form-success">This demo form is ready for your real contact integration. Replace the editable details in <code>portfolioData.ts</code> when you are ready to receive enquiries.</p> : <p className="form-note">No pressure, no generic proposal. Just a useful first conversation.</p>}</form></div>
+          <div className="container contact-layout"><div className="contact-aside"><div className="section-index"><span className="section-route-mark"><img src="/manus-storage/yashu-mark_00a7aaff.png" alt="" /></span>09 <span>/</span> CONTACT</div><h2>Let&apos;s build something <em>great.</em></h2><p>Tell me what you&apos;re working on, what is not working yet, or what you want people to feel when they find you online.</p><div className="contact-details"><div className="contact-person"><strong>{contactConfig.name}</strong><span>Freelance web developer &amp; web designer</span></div><a href={`mailto:${contactConfig.email}`}><Mail size={17} /><span>{contactConfig.email}</span></a><button className="contact-link-button" type="button" onClick={() => openWhatsApp()}><MessageCircle size={17} /><span>WhatsApp me · {contactConfig.whatsapp}</span></button><div><MapPin size={17} /><span>{contactConfig.location}</span></div></div></div><form className="contact-form" onSubmit={handleContactSubmit}><div className="form-row"><label><span>Your name</span><input required name="name" placeholder="Name" /></label><label><span>Email</span><input required type="email" name="email" placeholder="you@company.com" /></label></div><div className="form-row"><label><span>Business / company</span><input name="company" placeholder="Company name" /></label><label><span>Project type</span><select name="projectType" defaultValue=""><option value="" disabled>Select one</option><option>New business website</option><option>Website redesign</option><option>E-commerce website</option><option>Landing page</option><option>Something else</option></select></label></div><div className="form-row"><label><span>Budget range</span><select name="budget" defaultValue=""><option value="" disabled>Select one</option><option>₹18k – ₹35k</option><option>₹35k – ₹70k</option><option>₹70k+</option><option>Let&apos;s discuss</option></select></label><label><span>Timeline</span><input name="timeline" placeholder="When would you like to start?" /></label></div><label><span>Tell me a little about the project</span><textarea required name="message" placeholder="What are you building, refreshing, or trying to make clearer?" rows={5} /></label><div className="form-actions"><button className="button button-ink form-submit" type="submit">{submitted ? "Email draft opened" : "Send via email"}<ArrowUpRight size={17} /></button><button className="button button-whatsapp form-submit" type="button" onClick={() => { const form = document.querySelector<HTMLFormElement>(".contact-form"); const name = form?.elements.namedItem("name") as HTMLInputElement | null; openWhatsApp(name?.value ? `Hi Yash, I’m ${name.value}. I’d like to discuss a website project.` : undefined); }}>WhatsApp instead <MessageCircle size={17} /></button></div>{submitted ? <p className="form-success">Your email app should open with the enquiry addressed to <code>{contactConfig.email}</code>. Prefer WhatsApp? Use the adjacent button for a direct chat.</p> : <p className="form-note">No pressure, no generic proposal. Just a useful first conversation.</p>}</form></div>
         </section>
       </main>
 

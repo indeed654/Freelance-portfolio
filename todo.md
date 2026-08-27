@@ -6,4 +6,7 @@
 - [x] Add supplied screenshot previews to the selected work and project case-study views.
 - [x] Expand service and pricing data into clear deliverables, inclusions, optional add-ons, and package guidance.
 - [x] Verify desktop and mobile layouts, project modal visuals, contact CTAs, and production build.
-- [ ] Save a new checkpoint and deliver the revised portfolio.
+- [x] Save a new checkpoint and deliver the revised portfolio.
+- [x] Add a direct WhatsApp button to the contact section and project actions.
+- [x] Make the contact form build a prepared mailto enquiry addressed to Yash Kumar Sharma.
+- [x] Verify WhatsApp and email links plus production build, then checkpoint the update.

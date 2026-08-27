@@ -380,11 +380,12 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .contact-aside h2 { margin: 24px 0 24px; font-size: clamp(3rem, 5.7vw, 6.2rem); }
 .contact-aside > p { max-width: 350px; margin: 0; color: var(--muted-ink); font-size: 15px; line-height: 1.55; }
 .contact-details { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; margin-top: 50px; }
-.contact-details a, .contact-details div { display: inline-flex; align-items: center; gap: 11px; color: var(--ink); font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: .04em; }
+.contact-details a, .contact-details div, .contact-link-button { display: inline-flex; align-items: center; gap: 11px; color: var(--ink); font-family: 'IBM Plex Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: .04em; }
+.contact-link-button { border: 0; padding: 0; background: transparent; text-align: left; }
 .contact-person { display: flex !important; flex-direction: column; align-items: flex-start !important; gap: 4px !important; margin-bottom: 8px; font-family: 'Space Grotesk', sans-serif !important; text-transform: none !important; letter-spacing: 0 !important; }
 .contact-person strong { font-size: 20px; letter-spacing: -.04em; }
 .contact-person span { color: var(--muted-ink); font-family: 'IBM Plex Mono', monospace; font-size: 8px; text-transform: uppercase; letter-spacing: .08em; }
-.contact-details a:hover { color: #8da632; }
+.contact-details a:hover, .contact-link-button:hover { color: #8da632; }
 .contact-details svg { color: #8da632; }
 .contact-form { border-top: 1px solid var(--line); padding-top: 4px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -395,7 +396,10 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .contact-form select:invalid { color: #aaa79e; }
 .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--ink); }
 .contact-form textarea { resize: vertical; min-height: 100px; }
-.form-submit { margin-top: 31px; }
+.form-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 31px; }
+.form-submit { margin-top: 0; }
+.button-whatsapp { border-color: #4b8f5b; background: transparent; color: #276b3b; }
+.button-whatsapp:hover { border-color: #276b3b; background: #276b3b; color: var(--paper); }
 .form-note, .form-success { margin: 18px 0 0; color: var(--muted-ink); font-size: 9px; letter-spacing: .05em; line-height: 1.5; }
 .form-success { color: #6c8425; text-transform: none; letter-spacing: 0; font-family: 'Space Grotesk', sans-serif; font-size: 12px; }
 .form-success code { font-family: 'IBM Plex Mono', monospace; }
@@ -551,6 +555,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .contact-details { margin-top: 35px; }
   .contact-form { margin-top: 61px; }
   .form-row { display: block; }
+  .form-actions { align-items: stretch; flex-direction: column; }
+  .form-actions .button { width: 100%; justify-content: center; }
   .site-footer { padding: 24px 0 31px; }
   .footer-inner { display: flex; flex-direction: column; align-items: flex-start; }
   .footer-right { width: 100%; justify-content: space-between; }
